@@ -11,8 +11,9 @@ var corsOptions = {
   origin: "http://localhost:3003"
 };
 
-const movieRoutes = require("./controllers/movieController")
+const movieRoutes = require("./controllers/movieController");
 const roomRoutes = require("./controllers/roomController");
+const seedRoutes = require("./controllers/seedController");
 
 const mongodbURI = "mongodb+srv://NateHockman:vote2watch@testclustertodos.gt42r.mongodb.net/testClusterTodos?retryWrites=true&w=majority"
 
@@ -35,6 +36,8 @@ mongoose.connect(mongodbURI, { useNewUrlParser: true }).then(() => {
 
   app.use("/api/movies", movieRoutes)
   app.use("/api/rooms", roomRoutes)
+  app.use("/api/seeds", seedRoutes)
+  
 
 
   // mongoose.connection.once("open", () => {
